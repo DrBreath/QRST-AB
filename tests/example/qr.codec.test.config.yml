@@ -1,0 +1,106 @@
+
+header: # 定义消息头部的长度
+  tag: 8  # 表示version的长度
+  identity: 16
+  transaction: 16 
+  count: 4  # 4的倍数 seq和count相等
+version: 1  
+version_offset_date: '2022-01-01'
+max_qr_len: 200 # 最大qr的长度,单位bytes version,22,L,1003  # 二维码版本对应https://www.qrcode.com/zh/about/version.html
+identity_field: patientId
+transaction_field: admissionTime
+
+datetime_fields:  # 相对于transaction_field字段的天数差
+  - dischargeTime
+  - laboratoryList.[].reportDate
+
+tokenization_model_path: './tokenizer_bpe_12000.model'
+tokenization_fields:
+  - 'emergencyDept'
+  - 'concomitantDiseases.[].questionContent'
+  - 'concomitantDiseases.[].part'
+  - 'laboratoryList.[].examName'
+  - 'laboratoryList.[].laboratoryEDetailList.[].indicatorName'
+  - 'dischargeMedications.[].drug'
+
+asn1_conf: './vte.spec.asn1.txt'  # asn1序列化协议,仅测试性能时用
+asn1_orig_conf: './vte.spec.asn1.orig.txt'  # asn1序列化协议，原始orig,仅测试性能时用
+# avro序列化协议
+avro_conf: 
+  name: VTERecord
+  type: record
+  fields: 
+    - name: patientNo 
+      type: string
+    - name: patientType 
+      type: string
+    - name: hospital 
+      type: string
+    - name: emergencyCode 
+      type: string
+    - name: emergencyDept 
+      type: string
+    - name: height 
+      type: int
+    - name: weight 
+      type: int
+    - name: age 
+      type: int
+    - name: gender 
+      type: int
+    - name: dischargeTime 
+      type: string
+    - name: laboratoryList
+      type: 
+        type: array
+        items:
+          name: labItem
+          type: record
+          fields:
+          - name: examName
+            type: string 
+          - name: reportDate
+            type: string  
+          - name: laboratoryEDetailList
+            type: 
+              type: array
+              items:
+                name: labItemDetail
+                type: record
+                fields:
+                - name: indicatorName 
+                  type: string
+                - name: resultValue 
+                  type: string
+                - name: singularPrompt 
+                  type: string
+                - name: unit 
+                  type: string
+    - name: dischargeMedications
+      type: 
+        type: array
+        items:
+          name: medication
+          type: record
+          fields:
+          - name: drug 
+            type: string
+          - name: dosage 
+            type: string
+          - name: unit 
+            type: string
+          - name: freqIntervalUnit 
+            type: string
+          - name: freqCounter 
+            type: string
+    - name: concomitantDiseases    
+      type: 
+        type: array
+        items: 
+          name: disease
+          type: record
+          fields:
+          - name: questionContent 
+            type: string
+          - name: part 
+            type: string          

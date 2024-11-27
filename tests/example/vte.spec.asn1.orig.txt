@@ -1,0 +1,37 @@
+GeneratedSchema DEFINITIONS AUTOMATIC TAGS ::= BEGIN
+
+VTEMsg ::= SEQUENCE {
+    laboratoryList SEQUENCE SIZE(0..15) OF SEQUENCE {
+        examName UTF8String(SIZE(1..256)),
+        reportDate UTF8String(SIZE(1..16)),
+        laboratoryEDetailList SEQUENCE SIZE(1..255) OF SEQUENCE {
+            indicatorName UTF8String(SIZE(1..256)),
+            resultValue UTF8String(SIZE (0..15)),
+            singularPrompt UTF8String(SIZE (0..15)),
+            unit UTF8String(SIZE (0..15))
+        }
+    },
+    hospital UTF8String,
+    patientNo UTF8String(SIZE (0..32)),
+    emergencyCode UTF8String(SIZE (0..32)),
+    emergencyDept UTF8String(SIZE(1..256)),
+    height INTEGER(0..255),
+    weight INTEGER(0..255),
+    age INTEGER(0..255),
+    gender INTEGER(0..255),
+    dischargeTime UTF8String(SIZE(1..16)),
+    patientType UTF8String(0..15),
+    dischargeMedications SEQUENCE SIZE(0..32) OF SEQUENCE {
+        drug UTF8String(SIZE(1..256)),
+        dosage UTF8String(SIZE(0..31)), 
+        unit UTF8String(SIZE(0..31)), 
+        freqCounter UTF8String(SIZE(0..31)),
+        freqIntervalUnit UTF8String(SIZE(0..31))
+    },
+    concomitantDiseases SEQUENCE SIZE(0..32) OF SEQUENCE {
+        questionContent UTF8String(SIZE(1..256)),
+        part UTF8String(SIZE(0..32))
+    }
+}
+
+END

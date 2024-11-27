@@ -1,0 +1,30 @@
+
+header: # 定义消息头部的长度
+  tag: 8  # 表示version的长度
+  identity: 8  # 1位鉴权码
+  transaction: 8  # 1位事务id
+  count: 8  # 8的2次方 seq和count相等
+version: 1
+version_offset_date: '2024-10-21'
+max_qr_len: 1171 # 最大qr的长度,单位bytes version,23,L,1171  # 二维码版本对应https://www.qrcode.com/zh/about/version.html
+identity_field: fileName   # 文件名作鉴权字段
+transaction_field: createTime  # 创建时间作为事务id
+
+datetime_fields:  [] # 相对于transaction_field字段的天数差
+tokenization_model_path: ''  # 不需要tokenization时，为空
+tokenization_fields: []
+
+avro_conf: 
+  name: VTEMsg
+  type: record
+  fields:
+    - name: columns
+      type:
+        type: array
+        items: string
+    - name: data
+      type:
+        type: array
+        items:
+          type: array
+          items: int  # 简单格式，只支持int类型
