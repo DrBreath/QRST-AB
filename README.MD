@@ -25,8 +25,10 @@ qr_codec = QR_Codec('./tests/example/qr.codec.test.config.yml')
 
 # Input JSON: Read a JSON file
 obj = load_json('./tests/example/sample_en.json')
+
 # Encode into different QR code data streams
 qr_list = qr_codec.encode(obj)
+
 # Decode and restore it back to JSON
 patient_id = obj.pop(qr_codec.conf['identity_field'] )
 for qr_bytes in qr_list:
@@ -45,12 +47,12 @@ print(f'JSON file size = {orig_size}bytes, compressed siez = {compressed_size}by
 ```
 
 - the demo code see as : [./demo.py](./demo.py)
-- the example of config see as : [./tests/example/qr.codec.test.config.yml](./tests/example/qr.codec.test.config.ym) 
+- the example of config see as : [./tests/example/qr.codec.test.config.yml](./tests/example/qr.codec.test.config.yml) 
 
 - the example of test json file see as : [./tests/example/sample_en.json](./tests/example/sample_en.json) 
 
 # Practical Suggestions:
-- Refer to [./tests/example/qr.codec.test.config.yml](./tests/example/qr.codec.test.config.ym)  to define your own JSON configuration file and `Apache Avro Schema`
+- Refer to [./tests/example/qr.codec.test.config.yml](./tests/example/qr.codec.test.config.ym)  to define your own JSON configuration file and `Apache Avro Schema`, 
 - Using a private corpus to train a tokenizer can achieve better compression performance and prevent third-party decoding. For training methods, refer to [sentencepiece](https://github.com/google/sentencepiece)
 
 # LICENSE

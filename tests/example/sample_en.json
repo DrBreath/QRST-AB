@@ -1,0 +1,137 @@
+{
+  "admissionTime": "2022-01-16",
+  "dischargeTime": "2022-01-16",
+  "patientNo": "10343524@8",
+  "hospital": "1",
+  "patientId": "101120199401014321",
+  "emergencyCode": "210301",
+  "emergencyDept": "Department of rehabilitation medicine",
+  "height": 160,
+  "weight": 59,
+  "age": 30,
+  "gender": 1,
+  "patientType": "1",
+  "laboratoryList": [
+    {
+      "examName": "Whole Blood",
+      "reportDate": "2022-03-16",
+      "laboratoryEDetailList": [
+        {
+          "indicatorName": "Whole Blood",
+          "resultValue": "24.8",
+          "singularPrompt": "N",
+          "unit": "%"
+        },
+        {
+          "indicatorName": "Estimation of glomerular filtration rate Cys",
+          "resultValue": "10.2",
+          "singularPrompt": "N",
+          "unit": "%"
+        },
+        {
+          "indicatorName": "Absolute number of lymphocytes",
+          "resultValue": "10.0",
+          "singularPrompt": "N",
+          "unit": "fl"
+        },
+        {
+          "indicatorName": "Partial pressure of blood oxygen",
+          "resultValue": "167",
+          "singularPrompt": "N",
+          "unit": "*10^9/L"
+        },
+        {
+          "indicatorName": "Blood oxygen saturation",
+          "resultValue": "13.3",
+          "singularPrompt": "N",
+          "unit": "%"
+        },
+        {
+          "indicatorName": "Neutrophil classification",
+          "resultValue": "356",
+          "singularPrompt": "H",
+          "unit": "g/L"
+        },
+        {
+          "indicatorName": "Mean hemoglobin concentration",
+          "resultValue": "31.9",
+          "singularPrompt": "N",
+          "unit": "pg"
+        },
+        {
+          "indicatorName": "Red blood cell distribution width SD",
+          "resultValue": "89.8",
+          "singularPrompt": "N",
+          "unit": "fl"
+        },
+        {
+          "indicatorName": "Red blood cell count",
+          "resultValue": "19.4",
+          "singularPrompt": "L",
+          "unit": "%"
+        },
+        {
+          "indicatorName": "Leukocyte count",
+          "resultValue": "69",
+          "singularPrompt": "L",
+          "unit": "g/L"
+        },
+        {
+          "indicatorName": "High sensitivity C-reactive protein",
+          "resultValue": "2.16",
+          "singularPrompt": "L",
+          "unit": "*10^12/L"
+        }
+      ]
+    }
+  ],
+  "dischargeMedications": [
+    {
+      "drug": "Levofloxacin",
+      "dosage": "1",
+      "unit": "mg",
+      "freqCounter": "1",
+      "freqIntervalUnit": "day"
+    },
+    {
+      "drug": "Compound sulfamethoxazole",
+      "dosage": "1",
+      "unit": "mg",
+      "freqCounter": "1",
+      "freqIntervalUnit": "day"
+    },
+    {
+      "drug": "Ceftazidime",
+      "dosage": "1",
+      "unit": "mg",
+      "freqCounter": "1",
+      "freqIntervalUnit": "day"
+    }
+    ,
+    {
+      "drug": "Tobramycin",
+      "dosage": "1",
+      "unit": "mg",
+      "freqCounter": "1",
+      "freqIntervalUnit": "day"
+    }
+  ],
+  "concomitantDiseases": [
+    {
+      "questionContent": "Fracture of nasal bone; Zygomatic fracture; Maxillary fracture; Mandibular fracture",
+      "part": "Facial injury"
+    },
+    {
+      "questionContent": "Paroxysmal atrial fibrillation",
+      "part": "hypertension"
+    },
+    {
+      "questionContent": "Respiratory failure; pulmonary infection",
+      "part": "Intracranial injury"
+    },
+    {
+      "questionContent": "Traumatic epidural hemorrhage",
+      "part": "Brain stem injury"
+    }
+  ]
+}

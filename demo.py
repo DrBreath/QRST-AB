@@ -4,8 +4,10 @@ qr_codec = QR_Codec('./tests/example/qr.codec.test.config.yml')
 
 # Input JSON: Read a JSON file
 obj = load_json('./tests/example/sample_en.json')
+
 # Encode into different QR code data streams
 qr_list = qr_codec.encode(obj)
+
 # Decode and restore it back to JSON
 patient_id = obj.pop(qr_codec.conf['identity_field'] )
 for qr_bytes in qr_list:
