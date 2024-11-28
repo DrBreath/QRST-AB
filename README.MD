@@ -8,6 +8,7 @@ install by pip
 ```shell
 pip install qrst
 ```
+
 or install by source code
 ```shell
 git clone https://github.com/DrBreath/QRST-AB
@@ -42,10 +43,16 @@ orig_size = len(json.dumps(obj).encode())
 compressed_size = sum([len(q) for q in qr_list])
 print(f'JSON file size = {orig_size}bytes, compressed siez = {compressed_size}bytes,Compressed Ratio={orig_size/compressed_size:.2f}')
 ```
+
+- the demo code see as : [./demo.py](./demo.py)
+- the example of config see as : [./tests/example/qr.codec.test.config.yml](./tests/example/qr.codec.test.config.ym) 
+
+- the example of test json file see as : [./tests/example/sample_en.json](./tests/example/sample_en.json) 
+
 # Practical Suggestions:
-- Refer to `/tests/example/qr.codec.test.config.yml` to define your own JSON configuration file.
-- Using a private corpus to train a tokenizer can achieve better compression performance and prevent third-party decoding. For training methods, refer to[sentencepiece](https://github.com/google/sentencepiece)
-- 
+- Refer to [./tests/example/qr.codec.test.config.yml](./tests/example/qr.codec.test.config.ym)  to define your own JSON configuration file and `Apache Avro Schema`
+- Using a private corpus to train a tokenizer can achieve better compression performance and prevent third-party decoding. For training methods, refer to [sentencepiece](https://github.com/google/sentencepiece)
+
 # LICENSE
 Apache License 2.0
 

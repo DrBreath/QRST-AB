@@ -1,18 +1,18 @@
 import sys
 import os
 
-pythonPath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
-if pythonPath not in sys.path:
-    sys.path.insert(0,pythonPath)
+# pythonPath = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
+# if pythonPath not in sys.path:
+#     sys.path.insert(0,pythonPath)
 
 import sentencepiece as spm
-from qrst.qr_codec_util import *
+from .qr_codec_util import *
 from copy import deepcopy
 import math
 import zlib
 
 import hashlib
-from qrst.buff_mgr import get_buffMgr
+from .buff_mgr import get_buffMgr
 
  
 class QR_Codec:

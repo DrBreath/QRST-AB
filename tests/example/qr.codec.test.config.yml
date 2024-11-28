@@ -1,20 +1,22 @@
 
-header: # 定义消息头部的长度
-  tag: 8  # 表示version的长度
-  identity: 16
-  transaction: 16 
-  count: 4  # 4的倍数 seq和count相等
+header: # the bit length of the message header fields in each QR code
+  tag: 8  # Version identifier, a predetermined fixed value
+  identity: 16 # User's digital fingerprint
+  transaction: 16  #Transaction ID for the current transmission
+  count: 4  # Number of QR codes the record is split into
 version: 1  
 version_offset_date: '2022-01-01'
-max_qr_len: 200 # 最大qr的长度,单位bytes version,22,L,1003  # 二维码版本对应https://www.qrcode.com/zh/about/version.html
+max_qr_len: 200 # the max length of each QR Code  refer to: https://www.qrcode.com/zh/about/version.html
 identity_field: patientId
-transaction_field: admissionTime
+transaction_field: admissionTime 
 
-datetime_fields:  # 相对于transaction_field字段的天数差
+datetime_fields:  # datetime to delta integer compare to transaction_field(datetime)
   - dischargeTime
   - laboratoryList.[].reportDate
 
+# your private tokenizer
 tokenization_model_path: './tokenizer_bpe_12000.model'
+# the fields needed to tokenization 
 tokenization_fields:
   - 'emergencyDept'
   - 'concomitantDiseases.[].questionContent'
@@ -23,9 +25,9 @@ tokenization_fields:
   - 'laboratoryList.[].laboratoryEDetailList.[].indicatorName'
   - 'dischargeMedications.[].drug'
 
-asn1_conf: './vte.spec.asn1.txt'  # asn1序列化协议,仅测试性能时用
-asn1_orig_conf: './vte.spec.asn1.orig.txt'  # asn1序列化协议，原始orig,仅测试性能时用
-# avro序列化协议
+asn1_conf: './vte.spec.asn1.txt'  # ASN.1 schema for after tonkenizatin , ONLY for test!
+asn1_orig_conf: './vte.spec.asn1.orig.txt'  # ASN.1 schema for original JSON file , ONLY for test!
+# Apache Avro Schema ,refer to 
 avro_conf: 
   name: VTERecord
   type: record
